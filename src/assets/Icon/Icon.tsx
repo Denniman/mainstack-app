@@ -6,7 +6,9 @@ import Alarm from "./assets/alarm";
 import More from "./assets/more";
 import Info from "./assets/info";
 import Group from "./assets/group";
+import Google from "./assets/google";
 import Delete from "./assets/delete";
+import Nigeria from "./assets/nigeria";
 import Twitter from "./assets/twitter";
 import Instagram from "./assets/instagram";
 import Linkdedin from "./assets/linkdedin";
@@ -31,6 +33,8 @@ const iconMap = {
   FilePresent,
   Subscription,
   mainstackLogo,
+  google: Google,
+  nigeria: Nigeria,
   twitter: Twitter,
   facebook: Facebook,
   linkedin: Linkdedin,
