@@ -6,7 +6,7 @@ export const Container = styled.aside<{ isActive?: boolean }>`
   min-height: 100vh;
   flex-direction: column;
   color: ${({ theme }) => theme.colors.GRAY_TEXT_COLOR};
-  border-right: 2px solid ${({ theme }) => theme.colors.BORDER_GRAY};
+  border-right: 1.5px solid ${({ theme }) => theme.colors.BORDER_GRAY};
 
   .logo-container {
     margin-top: 2rem;

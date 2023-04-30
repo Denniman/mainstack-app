@@ -3,6 +3,7 @@ import {
   Pie,
   XAxis,
   Area,
+  Cell,
   YAxis,
   Tooltip,
   PieChart,
@@ -23,6 +24,7 @@ import {
   SubTitle,
   Container,
   TitleCount,
+  FilterButton,
   ContentTitle,
   ViewAnalytics,
   DoughnutItems,
@@ -31,18 +33,22 @@ import {
   DashboardHeader,
   DoughnutContainer,
   DashboardContent,
+  FilterContainer,
 } from "./dashboard.styles";
 
-// const colors = {
-//   facebook: "#0FB77A",
-//   instagram: "#844FF6",
-//   google: "#599EEA",
-//   linkedin: "#FAB70A",
-// };
+const cellColors = {
+  Nigeria: "#599EEA",
+  Germany: "#844FF6",
+  Ghana: "#0FB77A",
+  Finland: "#FAB70A",
+  "United Kingdom": "#F09468",
+};
 
+const filter = ["1 Day", "3 Days", "30 Days", "All Time", "Custom Date"];
 export const Dashboard = () => {
   const [data, setData] = useState<IData>();
   const [loading, setLoading] = useState(true);
+  const [filterBy, setFilterBy] = useState("All Time");
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
@@ -71,9 +77,11 @@ export const Dashboard = () => {
   });
 
   const topLocations = data?.top_locations.map(({ country, percent }) => {
+    const colorType = country as keyof typeof cellColors;
     return {
       name: country,
       value: percent,
+      color: cellColors[colorType],
     };
   });
 
@@ -98,6 +106,17 @@ export const Dashboard = () => {
           <ViewAnalytics>View analytics</ViewAnalytics>
           <SubTitle>Check out your dashboard summary.</SubTitle>
         </DashboardHeader>
+        <FilterContainer>
+          {filter.map((item) => (
+            <FilterButton
+              key={item}
+              isSelected={item === filterBy}
+              onClick={() => setFilterBy(item)}
+            >
+              {item}
+            </FilterButton>
+          ))}
+        </FilterContainer>
 
         <DashboardContent>
           <GraphContainer>
@@ -162,7 +181,11 @@ export const Dashboard = () => {
                       innerRadius={60}
                       outerRadius={100}
                       fill="#844FF6"
-                    />
+                    >
+                      {topLocations?.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.color} />
+                      ))}
+                    </Pie>
                   </PieChart>
                 </div>
               </div>
@@ -191,7 +214,11 @@ export const Dashboard = () => {
                       innerRadius={60}
                       outerRadius={100}
                       fill="#599EEA"
-                    />
+                    >
+                      {topLocations?.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.color} />
+                      ))}
+                    </Pie>
                   </PieChart>
                 </div>
               </div>

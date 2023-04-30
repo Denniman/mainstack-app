@@ -41,6 +41,26 @@ export const SubTitle = styled.p`
   margin-top: 1.5rem;
 `;
 
+export const FilterContainer = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+`;
+
+export const FilterButton = styled.button<{ isSelected: boolean }>`
+  width: 12rem;
+  font-size: 1.4rem;
+  padding: 0.7rem 1.3rem;
+  color: ${({ theme, isSelected }) =>
+    isSelected ? theme.colors.ORANGE_COLOR : theme.colors.BLACK_COLOR};
+  border-radius: 40px;
+  border: 1.5px solid
+    ${({ theme, isSelected }) =>
+      isSelected ? theme.colors.ORANGE_COLOR : theme.colors.BORDER_GRAY};
+  background-color: ${({ theme, isSelected }) =>
+    isSelected ? "#ffddcc" : theme.colors.WHITE_COLOR};
+`;
+
 export const ViewAnalytics = styled.div`
   display: flex;
   font-size: 1.4rem;
