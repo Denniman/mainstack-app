@@ -1,0 +1,11 @@
+@font-face {
+  font-weight: 400;
+  font-family: "TestSöhne";
+  src: url("./assets/fonts/Söhne/TestSöhne-Buch.otf") format("opentype");
+}
+
+@font-face {
+  font-weight: 400;
+  font-family: "Söhne-Fett";
+  src: url("./assets/fonts/Söhne/TestSöhne-Fett.otf") format("opentype");
+}
