@@ -123,6 +123,10 @@ export const DoughnutItems = styled.div`
     display: flex;
     margin-top: 1rem;
     align-items: center;
+
+    > * {
+      flex: 1;
+    }
   }
 
   .data-wrapper {
@@ -146,8 +150,11 @@ export const DoughnutHeader = styled.div`
 export const ContentTitle = styled.p`
   font-size: 1.8rem;
   font-weight: 600;
-  margin-left: 1.2rem;
   color: ${({ theme }) => theme.colors.BLACK_COLOR};
+`;
+
+export const GraphTitle = styled(ContentTitle)`
+  margin-left: 1.2rem;
 `;
 
 export const ErrorMessage = styled.p`

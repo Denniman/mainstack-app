@@ -24,6 +24,7 @@ import {
   Container,
   GraphHeader,
   TitleCount,
+  GraphTitle,
   FilterButton,
   ContentTitle,
   ViewAnalytics,
@@ -124,7 +125,7 @@ export const Dashboard = () => {
         <DashboardContent>
           <GraphContainer>
             <GraphHeader>
-              <ContentTitle>Page Views</ContentTitle>
+              <GraphTitle>Page Views</GraphTitle>
               <Icon name="Info" />
             </GraphHeader>
             <GraphSubTitle>All time</GraphSubTitle>
@@ -182,8 +183,8 @@ export const Dashboard = () => {
                     ))}
                 </div>
 
-                <ResponsiveContainer width={"60%"} height={250}>
-                  <PieChart width={400} height={250}>
+                <ResponsiveContainer width={"70%"} height={250}>
+                  <PieChart>
                     <Pie
                       data={topLocations}
                       dataKey="value"
@@ -224,8 +225,8 @@ export const Dashboard = () => {
                       <SourceData {...items} key={items.source} />
                     ))}
                 </div>
-                <ResponsiveContainer width={"60%"} height={250}>
-                  <PieChart width={400} height={250}>
+                <ResponsiveContainer width={"70%"} height={250}>
+                  <PieChart>
                     <Pie
                       data={topSources}
                       dataKey="value"
