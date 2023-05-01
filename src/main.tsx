@@ -4,7 +4,6 @@ import App from "./App.tsx";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import { FONTS, BREAK_POINTS, APP_COLORS } from "./theme/styles.ts";
 import GlobalStyle from "./theme/reset.ts";
-import "./index.css";
 
 const theme: DefaultTheme = {
   fonts: FONTS,

@@ -1,4 +1,4 @@
-import { Dashboard } from "./page/dashboard/dashboard";
+import { Dashboard } from "./page/dashboard";
 
 function App() {
   return <Dashboard />;
