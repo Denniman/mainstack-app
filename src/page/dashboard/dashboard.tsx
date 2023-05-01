@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import moment from "moment";
 import {
   Pie,
   XAxis,
@@ -11,7 +12,6 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from "recharts";
-import moment from "moment";
 
 import { IData } from "../../models";
 import { Icon } from "../../assets/Icon";
@@ -50,13 +50,12 @@ const cellColors = {
 const filter = ["1 Day", "3 Days", "30 Days", "All Time", "Custom Date"];
 export const Dashboard = () => {
   const [data, setData] = useState<IData>();
-  const [loading, setLoading] = useState(true);
-  const [filterBy, setFilterBy] = useState("All Time");
+  const [isLoading, setIsLoading] = useState(true);
+  const [filterBy, setFilterBy] = useState(filter[3]);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     (async () => {
-      setLoading(true);
       try {
         const response = await fetch("https://fe-task-api.mainstack.io/");
         const data = await response.json();
@@ -65,13 +64,13 @@ export const Dashboard = () => {
         const error = err as Error;
         setError(error);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     })();
   }, []);
 
-  const showData = !loading && !error;
-  const showError = !loading && error;
+  const showData = !isLoading && !error;
+  const showError = !isLoading && error;
 
   const topSources = data?.top_sources.map(({ source, percent }) => {
     return {
@@ -111,11 +110,11 @@ export const Dashboard = () => {
           <SubTitle>Check out your dashboard summary.</SubTitle>
         </DashboardHeader>
         <FilterContainer>
-          {filter.map((item) => (
+          {filter.map((item, index) => (
             <FilterButton
               key={item}
               isSelected={item === filterBy}
-              onClick={() => setFilterBy(item)}
+              onClick={() => setFilterBy(filter[index])}
             >
               {item}
             </FilterButton>
@@ -167,7 +166,7 @@ export const Dashboard = () => {
               </DoughnutHeader>
               <div className="list-items">
                 <div className="data-wrapper">
-                  {loading && (
+                  {isLoading && (
                     <div className="message-container">
                       <p>Loading...</p>
                     </div>
@@ -210,7 +209,7 @@ export const Dashboard = () => {
               </DoughnutHeader>
               <div className="list-items">
                 <div className="data-wrapper">
-                  {loading && (
+                  {isLoading && (
                     <div className="message-container">
                       <p>Loading...</p>
                     </div>
