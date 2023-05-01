@@ -16,13 +16,13 @@ import moment from "moment";
 import { IData } from "../../models";
 import { Icon } from "../../assets/Icon";
 import { Sidebar, DataList, SourceData } from "../../components";
-import { GraphHeader } from "../../components/Sidebar/Sidebar.styles";
 
 import {
   Main,
   Title,
   SubTitle,
   Container,
+  GraphHeader,
   TitleCount,
   FilterButton,
   ContentTitle,
@@ -34,6 +34,7 @@ import {
   DoughnutContainer,
   DashboardContent,
   FilterContainer,
+  ErrorMessage,
 } from "./dashboard.styles";
 
 const cellColors = {
@@ -68,6 +69,7 @@ export const Dashboard = () => {
   }, []);
 
   const showData = !loading && !error;
+  const showError = !loading && error;
 
   const topSources = data?.top_sources.map(({ source, percent }) => {
     return {
@@ -127,7 +129,7 @@ export const Dashboard = () => {
             <SubTitle>All time</SubTitle>
             <TitleCount>500</TitleCount>
             <div className="graph">
-              <ResponsiveContainer width={"100%"} height={250}>
+              <ResponsiveContainer width={"98%"} height={250}>
                 <AreaChart
                   width={500}
                   height={200}
@@ -163,14 +165,23 @@ export const Dashboard = () => {
               </DoughnutHeader>
               <div className="list-items">
                 <div className="data-wrapper">
-                  {loading && <p>Loading...</p>}
+                  {loading && (
+                    <div className="message-container">
+                      <p>Loading...</p>
+                    </div>
+                  )}
+                  {showError && (
+                    <div className="message-container">
+                      <ErrorMessage>Error: {error.message}</ErrorMessage>
+                    </div>
+                  )}
                   {showData &&
                     data?.top_locations.map((items) => (
                       <DataList {...items} key={items.country} />
                     ))}
                 </div>
 
-                <div className="piechart-wrapper">
+                <ResponsiveContainer width={"60%"} height={250}>
                   <PieChart width={400} height={250}>
                     <Pie
                       data={topLocations}
@@ -187,7 +198,7 @@ export const Dashboard = () => {
                       ))}
                     </Pie>
                   </PieChart>
-                </div>
+                </ResponsiveContainer>
               </div>
             </DoughnutItems>
             <DoughnutItems>
@@ -197,13 +208,22 @@ export const Dashboard = () => {
               </DoughnutHeader>
               <div className="list-items">
                 <div className="data-wrapper">
-                  {loading && <p>Loading...</p>}
+                  {loading && (
+                    <div className="message-container">
+                      <p>Loading...</p>
+                    </div>
+                  )}
+                  {showError && (
+                    <div className="message-container">
+                      <ErrorMessage>Error: {error.message}</ErrorMessage>
+                    </div>
+                  )}
                   {showData &&
                     data?.top_sources.map((items) => (
                       <SourceData {...items} key={items.source} />
                     ))}
                 </div>
-                <div className="piechart-wrapper">
+                <ResponsiveContainer width={"60%"} height={250}>
                   <PieChart width={400} height={250}>
                     <Pie
                       data={topSources}
@@ -220,7 +240,7 @@ export const Dashboard = () => {
                       ))}
                     </Pie>
                   </PieChart>
-                </div>
+                </ResponsiveContainer>
               </div>
             </DoughnutItems>
           </DoughnutContainer>

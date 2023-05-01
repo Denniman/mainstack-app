@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import { FONTS, BREAK_POINTS, APP_COLORS } from "./theme/styles.ts";
 import GlobalStyle from "./theme/reset.ts";

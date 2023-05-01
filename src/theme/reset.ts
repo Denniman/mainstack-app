@@ -119,7 +119,7 @@ const GlobalStyle = createGlobalStyle`${reset}
     }
 
       
-      @media (min-width: ${({ theme }) => theme.breakpoints.LARGE_VIEWPORT}) {
+      @media (min-width: ${({ theme }) => theme.breakpoints.DESKTOP_VIEW}) {
         font-size: 62.5%; 
       }
 

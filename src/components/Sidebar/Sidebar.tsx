@@ -1,12 +1,12 @@
 import { Icon } from "../../assets/Icon";
 import {
+  Title,
   NavList,
   Avatar,
   Container,
   NavBottom,
   LinkWrapper,
   DividerTitle,
-  Title,
 } from "./Sidebar.styles";
 
 import { IconType } from "../../assets/Icon";

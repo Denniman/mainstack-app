@@ -40,12 +40,6 @@ export const NavList = styled.ul<{ isActive?: boolean }>`
   }
 `;
 
-export const GraphHeader = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
 export const DividerTitle = styled.p`
   font-size: 1.2rem;
   margin-left: 7.3rem;

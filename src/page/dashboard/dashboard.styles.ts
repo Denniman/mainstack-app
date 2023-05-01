@@ -29,6 +29,8 @@ export const Title = styled.h1`
 
 export const TitleCount = styled.p`
   font-size: 3rem;
+  margin-top: 1.7rem;
+  margin-left: 3rem;
   font-family: ${({ theme }) => theme.fonts.Söhne};
 `;
 
@@ -38,7 +40,8 @@ export const DashboardHeader = styled.header`
 
 export const SubTitle = styled.p`
   font-size: 1.4rem;
-  margin-top: 1.5rem;
+  margin-top: 1.7rem;
+  margin-left: 3rem;
 `;
 
 export const FilterContainer = styled.div`
@@ -75,7 +78,6 @@ export const DashboardContent = styled.div`
 export const GraphContainer = styled.div`
   height: 45rem;
   width: 100%;
-  padding: 2.4rem;
   font-size: 1.4rem;
   border-radius: 7px;
   border: 1px solid ${({ theme }) => theme.colors.BORDER_GRAY};
@@ -85,25 +87,29 @@ export const GraphContainer = styled.div`
   }
 `;
 
+export const GraphHeader = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 1.7rem;
+  justify-content: space-between;
+`;
+
 export const DoughnutContainer = styled.div`
-  margin-top: 2.4rem;
   display: flex;
   gap: 1.5rem;
+  width: 100%;
   align-items: center;
+  margin-top: 2.4rem;
   flex-direction: column;
   @media (min-width: ${({ theme }) => theme.breakpoints.EXTRA_LARGE_VIEWPORT}) {
     flex-direction: row;
   }
-
-  > * {
-    flex-basis: 100%;
-  }
 `;
 
 export const DoughnutItems = styled.div`
-  width: 100%;
-  height: 35rem;
+  height: 30rem;
   padding: 2.4rem;
+  flex-basis: 100%;
   font-size: 1.7rem;
   border-radius: 7px;
   border: 1px solid ${({ theme }) => theme.colors.BORDER_GRAY};
@@ -113,10 +119,6 @@ export const DoughnutItems = styled.div`
     display: flex;
     margin-top: 1rem;
     align-items: center;
-
-    > * {
-      flex-basis: 100%;
-    }
   }
 
   .data-wrapper {
@@ -124,8 +126,10 @@ export const DoughnutItems = styled.div`
     flex-direction: column;
   }
 
-  .recharts-wrapper {
-    max-width: 30rem;
+  .message-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -138,5 +142,10 @@ export const DoughnutHeader = styled.div`
 export const ContentTitle = styled.p`
   font-size: 1.8rem;
   font-weight: 600;
+  margin-left: 1.2rem;
   color: ${({ theme }) => theme.colors.BLACK_COLOR};
+`;
+
+export const ErrorMessage = styled.p`
+  color: red;
 `;
