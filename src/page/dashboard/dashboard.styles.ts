@@ -28,10 +28,10 @@ export const Title = styled.h1`
 `;
 
 export const TitleCount = styled.p`
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-top: 1.7rem;
   margin-left: 3rem;
-  font-family: ${({ theme }) => theme.fonts.Söhne};
+  font-weight: 600;
 `;
 
 export const DashboardHeader = styled.header`
