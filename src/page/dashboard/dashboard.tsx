@@ -28,13 +28,14 @@ import {
   ContentTitle,
   ViewAnalytics,
   DoughnutItems,
+  ErrorMessage,
+  GraphSubTitle,
   GraphContainer,
   DoughnutHeader,
+  FilterContainer,
   DashboardHeader,
   DoughnutContainer,
   DashboardContent,
-  FilterContainer,
-  ErrorMessage,
 } from "./dashboard.styles";
 
 const cellColors = {
@@ -126,7 +127,7 @@ export const Dashboard = () => {
               <ContentTitle>Page Views</ContentTitle>
               <Icon name="Info" />
             </GraphHeader>
-            <SubTitle>All time</SubTitle>
+            <GraphSubTitle>All time</GraphSubTitle>
             <TitleCount>500</TitleCount>
             <div className="graph">
               <ResponsiveContainer width={"98%"} height={250}>

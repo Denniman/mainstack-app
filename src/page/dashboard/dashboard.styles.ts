@@ -40,6 +40,9 @@ export const DashboardHeader = styled.header`
 
 export const SubTitle = styled.p`
   font-size: 1.4rem;
+`;
+
+export const GraphSubTitle = styled(SubTitle)`
   margin-top: 1.7rem;
   margin-left: 3rem;
 `;

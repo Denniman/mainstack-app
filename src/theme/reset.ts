@@ -85,8 +85,7 @@ const GlobalStyle = createGlobalStyle`${reset}
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
     background-color: ${({ theme }) => theme.colors.WHITE_COLOR};
-    font-family: ${({ theme }) => theme.fonts.TestSöhne};
-    overflow-x: hidden; 
+    font-family: ${({ theme }) => theme.fonts.TestSöhne}, sans-serif;
   
 
     input:focus,
