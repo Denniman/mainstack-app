@@ -55,6 +55,7 @@ export const FilterContainer = styled.div`
 
 export const FilterButton = styled.button<{ isSelected: boolean }>`
   width: 12rem;
+  cursor: pointer;
   font-size: 1.4rem;
   padding: 0.7rem 1.3rem;
   color: ${({ theme, isSelected }) =>
